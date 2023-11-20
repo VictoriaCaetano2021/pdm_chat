@@ -1,3 +1,16 @@
+# Descrição
+chat em flutter
+    -GETX  
+    -Armazenamento no FireBase 
+    -Tela de Splash animado ao entrar no aplicativo 
+    -Manipulação de  qrcode  (Criação/leitura/Armazenamento) 
+    -Armazenamento da foto do usuário (in-loco ou firebase) 
+
+O que será avaliado 
+    -Criatividade 
+    -Qualidade gráfica 
+    -Qualidade dos códigos (Clareza, componentização)
+
 # pdm_chat
 
 A new Flutter project.
