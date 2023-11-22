@@ -10,38 +10,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Chat',
+      title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
-      // home: const MyHomePage(title: 'Chat'),
-      home: HomePage(),
-
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
-
-class HomePage extends StatelessWidget{
- @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Inicio'),
-      ),
-      body: Center(
-        // child: Container(
-        //   color: Color(0xff465238),
-        child: Column(
-          children: <Widget>[
-            Text("Colocar login")
-            // Image.asset
-          ], //<Widget>[]
-        ), //Column
-    )
-    );
-  }
-}
-
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

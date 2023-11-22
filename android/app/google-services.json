@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "555511570718",
+    "firebase_url": "https://pdmchat-4ff4c-default-rtdb.firebaseio.com",
+    "project_id": "pdmchat-4ff4c",
+    "storage_bucket": "pdmchat-4ff4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555511570718:android:471038a9f136b6c828a90f",
+        "android_client_info": {
+          "package_name": "com.example.pdm_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB1Zfm3z5IuXR1ttPNjS48QuACxdspBnA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
