@@ -25,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -74,5 +71,15 @@ class DefaultFirebaseOptions {
     databaseURL: 'https://pdmchat-4ff4c-default-rtdb.firebaseio.com',
     storageBucket: 'pdmchat-4ff4c.appspot.com',
     iosBundleId: 'com.example.pdmChat',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyAJK2hGqAKoBu3xtKAzk3cTn82h4tLBmL0',
+    appId: '1:555511570718:ios:1df90b72dfd93dc828a90f',
+    messagingSenderId: '555511570718',
+    projectId: 'pdmchat-4ff4c',
+    databaseURL: 'https://pdmchat-4ff4c-default-rtdb.firebaseio.com',
+    storageBucket: 'pdmchat-4ff4c.appspot.com',
+    iosBundleId: 'com.example.pdmChat.RunnerTests',
   );
 }
