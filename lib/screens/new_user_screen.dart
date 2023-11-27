@@ -1,8 +1,13 @@
+//lcriação de usuário
+
+//igual enterRoomScren preencher duas vezes a senha
+//fazer upload da foto de perfil
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
  
-class EnterRoomScreen extends StatelessWidget {
- EnterRoomScreen({Key? key}) : super(key: key);
+class NewUserScreen extends StatelessWidget {
+ NewUserScreen({Key? key}) : super(key: key);
  
  final TextEditingController _nicknameEditingController =
      TextEditingController();
@@ -23,7 +28,7 @@ class EnterRoomScreen extends StatelessWidget {
              crossAxisAlignment: CrossAxisAlignment.start,
              children: <Widget>[
                const Text(
-                 'Seu nikname é...',
+                 'Seu nikname será...',
                  style: TextStyle(fontSize: 20, color: Colors.white),
                ),
                 const SizedBox(height: 12),

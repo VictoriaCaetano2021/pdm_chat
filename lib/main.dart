@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:pdm_chat/getX/routes.dart';
  
 import 'firebase_options.dart';
- 
-import 'screens/chat_screen.dart';
-import 'screens/enter_room_screen.dart';
+import 'package:get/get.dart';
  
 void main() async {
  WidgetsFlutterBinding.ensureInitialized();
@@ -19,17 +18,30 @@ class MyApp extends StatelessWidget {
  
  @override
  Widget build(BuildContext context) {
-   return MaterialApp(
-     debugShowCheckedModeBanner: false,
-     title: 'My.chat',
-     theme: ThemeData(
-       primarySwatch: Colors.blue,
-     ),
-     initialRoute: '/',
-     routes: {
-       '/': (context) => EnterRoomScreen(),
-       '/chat': (context) => const ChatScreen(),
-     },
-   );
+  return GetMaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'My.chat',
+      initialRoute: '/',
+      getPages: appRoutes(),
+    );
  }
 }
+
+// class MyApp extends StatelessWidget {
+//  const MyApp({Key? key}) : super(key: key);
+ 
+//  @override
+//  Widget build(BuildContext context) {
+//      return MaterialApp(
+//      debugShowCheckedModeBanner: false,
+//      title: 'My.chat',
+//      theme: ThemeData(
+//        primarySwatch: Colors.blue,
+//      ),
+//      initialRoute: '/',
+//      routes: {
+//        '/': (context) => EnterRoomScreen(),
+//        '/chat': (context) => const ChatScreen(),
+//      },
+//    );
+// }
