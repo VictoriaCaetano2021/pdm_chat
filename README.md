@@ -16,3 +16,27 @@ O que será avaliado
 - UI Chat usada do tutorial: https://blog.taller.net.br/criando-um-chat-completo-usando-flutter-e-firebase-parte-1/
 - getX tutorial: https://padymies.medium.com/flutter-getx-route-managment-b47635abd832
 - Conexão com Firebase Cloud Firestore criando uma collection("messages").
+
+# Firebase
+collection
+{
+    nome:'chat',
+    message:
+    [
+        {
+            author:'fulano',
+            message:'ola chat',
+            time:'10:50'
+        },
+        {
+            author:'fulano',
+            message:'ola chat',
+            time:'10:50'
+        },
+        {
+            author:'fulano',
+            message:'ola chat',
+            time:'10:50'
+        }
+    ]
+}

@@ -3,16 +3,26 @@
 //igual enterRoomScren preencher duas vezes a senha
 //fazer upload da foto de perfil
 
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
- 
+import 'package:pdm_chat/models/user_model.dart';
+import 'package:pdm_chat/providers/user_provider.dart';
+
 class NewUserScreen extends StatelessWidget {
  NewUserScreen({Key? key}) : super(key: key);
- 
+
+ final UserProvider userProvider =
+     UserProvider(firebaseFirestore: FirebaseFirestore.instance);
+
  final TextEditingController _nicknameEditingController =
      TextEditingController();
   final TextEditingController _passwordEditingController =
      TextEditingController();
+     
+       get firebaseFirestore => null;
  
  @override
  Widget build(BuildContext context) {
@@ -38,7 +48,6 @@ class NewUserScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 _enterButton(context),
                 const SizedBox(height: 12),
-                _newUserLink(context),
              ],
            ),
          ),
@@ -111,32 +120,21 @@ class NewUserScreen extends StatelessWidget {
    );
  }
  
-Widget _newUserLink(context) {
-  return GestureDetector(
-    onTap: () {
-      // Navega para a tela de cadastro
-      Get.toNamed('/register');
-    },
-    child: Text(
-      'Ainda não tem uma conta? Cadastre-se!',
-      style: TextStyle(fontSize: 16, color: Colors.blue),
-    ),
-  );
-}
-
  Widget _enterButton(context) {
    return Row(
      children: [
        Expanded(
          child: ElevatedButton(
-           onPressed: () {
-             if(_passwordEditingController.text=='123456'){//senha hadcode para validar -> buscar posteriomente no firabase se o login existe
-              // Utilizando GetX para navegar para a rota '/chat' e passar argumentos
-              Get.toNamed('/chat', arguments: _nicknameEditingController.text, );
-              _nicknameEditingController.clear();
-             }
+           onPressed: () async {
+
+            bool  userExists = await userProvider.isUser(_nicknameEditingController.text, _passwordEditingController.text);
+            print(userExists);
+            if(userExists){
+              userProvider.createUser(_nicknameEditingController.text, _passwordEditingController.text);
+            }
+               Get.toNamed('/');
            },
-           child: const Text('Entrar'),
+           child: const Text('Criar'),
            style: ElevatedButton.styleFrom(
              textStyle: const TextStyle(
                fontSize: 14,
@@ -150,3 +148,4 @@ Widget _newUserLink(context) {
    );
  }
 }
+

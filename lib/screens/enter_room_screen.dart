@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pdm_chat/providers/user_provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
  
 class EnterRoomScreen extends StatelessWidget {
  EnterRoomScreen({Key? key}) : super(key: key);
  
+  final UserProvider userProvider =
+     UserProvider(firebaseFirestore: FirebaseFirestore.instance);
+
  final TextEditingController _nicknameEditingController =
      TextEditingController();
   final TextEditingController _passwordEditingController =
@@ -124,12 +129,13 @@ Widget _newUserLink(context) {
      children: [
        Expanded(
          child: ElevatedButton(
-           onPressed: () {
-             if(_passwordEditingController.text=='123456'){//senha hadcode para validar -> buscar posteriomente no firabase se o login existe
-              // Utilizando GetX para navegar para a rota '/chat' e passar argumentos
-              Get.toNamed('/chat', arguments: _nicknameEditingController.text, );
-              _nicknameEditingController.clear();
-             }
+          onPressed: () async {
+            // Future<bool> isUser = userProvider.isUser(_nicknameEditingController.text, _passwordEditingController.text);
+            // if(await isUser){// checar o usuário foi retornado;
+            // print("encontrou o usuário!============");
+            //   Get.toNamed('/chat', arguments: _nicknameEditingController.text, );
+            //   _nicknameEditingController.clear();
+            //  }
            },
            child: const Text('Entrar'),
            style: ElevatedButton.styleFrom(
