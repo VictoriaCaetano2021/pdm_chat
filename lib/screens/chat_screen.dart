@@ -44,7 +44,7 @@ class _ChatScreenState extends State<ChatScreen> {
        centerTitle: true,
        backgroundColor: const Color(0XFF23272a),
        elevation: 1,
-       title: const Text('My.chat', style: TextStyle(fontSize: 16)),
+       title: const Text('Chat 6º Semestre', style: TextStyle(fontSize: 16)),
      ),
      body: Stack(
        children: <Widget>[
@@ -93,7 +93,6 @@ class _ChatScreenState extends State<ChatScreen> {
          )
        ],
      ),
-     drawer: UserProfileDrawer(),
    );
  }
  
@@ -105,38 +104,4 @@ class _ChatScreenState extends State<ChatScreen> {
      return MessageBubbleWidget(chatMessage: chatMessage, isMe: isMe);
    }
  }
-}
-
-class UserProfileDrawer extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Drawer(
-        backgroundColor: Color(0XFF36393f),
-      child: ListView(
-        children: [
-          UserAccountsDrawerHeader(
-            accountName: Text(
-              'Nome do Usuário',
-              style: TextStyle(color: Colors.white),
-            ),
-            accountEmail: Text(
-              'email@example.com',
-              style: TextStyle(color: Colors.white),
-            ),
-            currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage('assets/user_profile_image.jpg'), // Substitua pelo caminho da imagem do usuário
-            ),
-            decoration: BoxDecoration(
-              color: Color(0xff2f3136),
-              border: Border(
-                bottom: BorderSide(
-                  color: Colors.black26,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 }

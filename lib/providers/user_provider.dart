@@ -18,20 +18,30 @@ class UserProvider {
     firebaseFirestore.collection('users').add(userModel.toJson());
   }
 
-Future<bool> isUser(String name, String password) async {
+Future<bool> isUser(String name) async {
    QuerySnapshot<Map<String, dynamic>> userSnapshot = await FirebaseFirestore.instance
         .collection('users')
         .where('name', isEqualTo: name)
         .get();
       if (userSnapshot.docs.isEmpty) {
-      // Nenhum documento encontrado, então podemos adicionar um novo
-      print("========1=========");
-      return true;
-      }else {
-      print("========2=========");
-
         return false;
+      }else {
+        return true;
       }
 }
+
+Future<bool> isUser2(String name, String password) async {
+   QuerySnapshot<Map<String, dynamic>> userSnapshot = await FirebaseFirestore.instance
+        .collection('users')
+        .where('name', isEqualTo: name)
+        .where('password', isEqualTo: password)
+        .get();
+      if (userSnapshot.docs.isEmpty) {
+        return false;
+      }else {
+        return true;
+      }
+}
+
 
 }

@@ -13,6 +13,8 @@ class EnterRoomScreen extends StatelessWidget {
      TextEditingController();
   final TextEditingController _passwordEditingController =
      TextEditingController();
+  final TextEditingController _chatCodeController =
+     TextEditingController();
  
  @override
  Widget build(BuildContext context) {
@@ -36,6 +38,8 @@ class EnterRoomScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 _passwordInput(),
                 const SizedBox(height: 12),
+                // _chatCodedInput(),
+                // const SizedBox(height: 12),
                 _enterButton(context),
                 const SizedBox(height: 12),
                 _newUserLink(context),
@@ -110,6 +114,38 @@ class EnterRoomScreen extends StatelessWidget {
      ),
    );
  }
+
+ Widget _chatCodedInput() {
+   return TextFormField(
+     textInputAction: TextInputAction.done,
+     controller: _chatCodeController,
+     onChanged: (value) {},
+     cursorColor: const Color(0xff9b84ec),
+     style: const TextStyle(color: Colors.white),
+     decoration: const InputDecoration(
+       floatingLabelBehavior: FloatingLabelBehavior.never,
+       contentPadding: EdgeInsets.all(20.0),
+       filled: true,
+       fillColor: Color(0xff2f3136),
+       labelText: 'chat code',
+       suffixText: 'chat code',
+       hintStyle: TextStyle(color: Colors.white54),
+       labelStyle: TextStyle(color: Colors.white54),
+       enabledBorder: OutlineInputBorder(
+         borderSide: BorderSide(color: Colors.black26),
+       ),
+       focusedBorder: OutlineInputBorder(
+         borderSide: BorderSide(color: Color(0xff9b84ec), width: 1),
+         borderRadius: BorderRadius.all(Radius.circular(8.0)),
+       ),
+       border: OutlineInputBorder(
+         borderSide: BorderSide(color: Colors.red, width: 5),
+         borderRadius: BorderRadius.all(Radius.circular(8.0)),
+         gapPadding: 8.0,
+       ),
+     ),
+   );
+ }
  
 Widget _newUserLink(context) {
   return GestureDetector(
@@ -130,12 +166,12 @@ Widget _newUserLink(context) {
        Expanded(
          child: ElevatedButton(
           onPressed: () async {
-            // Future<bool> isUser = userProvider.isUser(_nicknameEditingController.text, _passwordEditingController.text);
-            // if(await isUser){// checar o usuário foi retornado;
-            // print("encontrou o usuário!============");
-            //   Get.toNamed('/chat', arguments: _nicknameEditingController.text, );
-            //   _nicknameEditingController.clear();
-            //  }
+         bool  userExists = await userProvider.isUser2(_nicknameEditingController.text, _passwordEditingController.text);
+            print(userExists);
+              if(userExists){
+                  Get.toNamed('/chat', arguments: _nicknameEditingController.text, );
+              _nicknameEditingController.clear();
+              }
            },
            child: const Text('Entrar'),
            style: ElevatedButton.styleFrom(

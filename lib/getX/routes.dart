@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:pdm_chat/screens/chat_screen.dart';
 import 'package:pdm_chat/screens/enter_room_screen.dart';
 import 'package:pdm_chat/screens/new_user_screen.dart';
+import 'package:pdm_chat/screens/set_chat_screen.dart';
 
 appRoutes() => [
       GetPage(
@@ -20,6 +21,13 @@ appRoutes() => [
       GetPage(
         name: '/register',
         page: () => NewUserScreen(),
+        middlewares: [MyMiddelware()],
+        transition: Transition.leftToRightWithFade,
+        transitionDuration: Duration(milliseconds: 500),
+      ),
+       GetPage(
+        name: '/setChat',
+        page: () => setChatScreen(),
         middlewares: [MyMiddelware()],
         transition: Transition.leftToRightWithFade,
         transitionDuration: Duration(milliseconds: 500),
